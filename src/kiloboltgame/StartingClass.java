@@ -56,7 +56,123 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 		addKeyListener(this);
 		Frame frame = (Frame) this.getParent().getParent();
 		frame.setTitle("Avoid Junkies");
+		frame.setVisible(false);
 		
+		Frame f=new Frame();
+	    f.setSize(800,480);
+	    f.setLayout(null);
+	    
+	
+	    
+	    Button b1=new Button("PLAY");
+		Button b2=new Button("INSTRUCTION");
+		Button b3=new Button("EXIT");
+		b1.setBounds(130, 300, 150, 50);
+		b2.setBounds(330,300,150,50);
+		b3.setBounds(530, 300, 150,50);
+		
+		Font ft=new Font("Ariela",Font.BOLD,78);
+		f.setBackground(Color.cyan);
+		Label l=new Label("Avoid Junk");
+		l.setFont(ft);
+		l.setBounds(190, 100, 470, 150);
+		f.add(l);
+	    f.add(b1);
+	    f.add(b2);
+		f.add(b3);
+		f.setVisible(true);
+		b2.addActionListener(new ActionListener(){
+
+			
+			public void actionPerformed(ActionEvent e) {
+			
+				f.setVisible(false);
+				Frame f2=new Frame("Instructions");
+				f2.setSize(800,500);
+				Font ft1=new Font("Ariela",Font.BOLD,14);
+				Label l2=new Label("1. THERE WILL BE  ");
+				Label l3=new Label("2. ");
+				Label l4=new Label("3. ");
+				Label l5=new Label("4. ");
+				Label l6=new Label("5. ");
+				l2.setBounds(50, 50, 400, 30);
+				l3.setBounds(50, 120, 400, 30);
+				l4.setBounds(50, 190, 400, 30);
+				l5.setBounds(50, 260, 400, 30);
+				l6.setBounds(50, 330, 400, 30);
+				l2.setFont(ft1);
+				l3.setFont(ft1);
+				l4.setFont(ft1);
+				l5.setFont(ft1);
+				l6.setFont(ft1);
+				Button b4=new Button("BACK");
+				b4.setBounds(700, 450, 80, 50);
+				f2.add(b4);
+				f2.add(l2);
+				f2.add(l3);
+				f2.add(l4);
+				f2.add(l5);
+				f2.add(l6);
+				f2.setBackground(Color.LIGHT_GRAY);
+				f2.setLayout(null);
+				f2.setVisible(true);
+				
+				  f2.addWindowListener(new WindowAdapter() {
+					    public void windowClosing(WindowEvent windowEvent){
+					    	f2.setVisible(false);
+							f.setVisible(true);
+					    }        
+					    });
+				  
+				  b4.addActionListener(new ActionListener(){
+
+						
+						public void actionPerformed(ActionEvent e) {
+						
+							f2.setVisible(false);
+							f.setVisible(true);
+							
+							}
+						});
+				}
+			});
+		
+
+	 
+		 b1.addActionListener(new ActionListener(){
+
+				
+				public void actionPerformed(ActionEvent e) {
+				
+			
+				f.dispose();
+				
+				frame.setResizable(false);
+			    frame.setVisible(true);
+				frame.setFocusable(true);
+				setFocusable(true);
+				
+			   }
+
+			
+
+		
+		 });
+		
+		 b3.addActionListener(new ActionListener(){
+
+				
+				public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+					}
+				});
+		 
+	    f.addWindowListener(new WindowAdapter() {
+		    public void windowClosing(WindowEvent windowEvent){
+		      System.exit(0);
+		    }        
+		    });
+	  
 //		Panel startpanel = new Panel();
 //		Button b = new Button("Play");
 //		startpanel.add(b);
